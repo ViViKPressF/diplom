@@ -1,2 +1,6 @@
-body
-{color="red"}
+body {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
