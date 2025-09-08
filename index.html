@@ -6,7 +6,6 @@
     <title>Дипломный проект</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Основные стили */
         :root {
             --primary: #3498db;
             --secondary: #2c3e50;
@@ -70,8 +69,7 @@
             margin-bottom: 15px;
             color: var(--text-light);
         }
-        
-        /* Шапка */
+      
         header {
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -115,7 +113,6 @@
             color: var(--accent);
         }
         
-        /* Герой секция */
         .hero {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -139,7 +136,7 @@
             margin: 0 auto 40px;
         }
         
-        /* Портфолио */
+
         .portfolio {
             background: var(--light);
         }
@@ -197,7 +194,7 @@
             font-size: 14px;
         }
         
-        /* Обо мне */
+
         .about-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -230,7 +227,7 @@
             color: var(--accent);
         }
         
-        /* Контакты */
+
         .contact {
             background: var(--secondary);
             color: white;
@@ -270,7 +267,7 @@
             transform: translateY(-5px);
         }
         
-        /* Подвал */
+
         footer {
             background: var(--dark);
             color: white;
@@ -282,7 +279,7 @@
             color: rgba(255,255,255,0.7);
         }
         
-        /* Адаптивность */
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -311,7 +308,7 @@
     </style>
 </head>
 <body>
-    <!-- Шапка -->
+
     <header>
         <div class="container header-container">
             <div class="logo">Мое<span>Портфолио</span></div>
@@ -326,7 +323,6 @@
         </div>
     </header>
 
-    <!-- Герой секция -->
     <section id="home" class="hero">
         <div class="container">
             <h1>Привет, я начинающий дизайнер</h1>
@@ -334,8 +330,6 @@
             <a href="#portfolio" class="btn">Смотреть работы</a>
         </div>
     </section>
-
-    <!-- Портфолио -->
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-title">
@@ -344,7 +338,6 @@
             </div>
             
             <div class="portfolio-grid">
-                <!-- Проект 1 -->
                 <div class="portfolio-item">
                     <div class="portfolio-img">
                         <img src="https://via.placeholder.com/600x400?text=HTML+сайт" alt="HTML сайт">
@@ -356,7 +349,6 @@
                     </div>
                 </div>
                 
-                <!-- Проект 2 -->
                 <div class="portfolio-item">
                     <div class="portfolio-img">
                         <img src="https://via.placeholder.com/600x400?text=WordPress+сайт" alt="WordPress сайт">
@@ -368,7 +360,6 @@
                     </div>
                 </div>
                 
-                <!-- Проект 3 -->
                 <div class="portfolio-item">
                     <div class="portfolio-img">
                         <img src="https://via.placeholder.com/600x400?text=Figma+макет" alt="Figma макет">
@@ -383,7 +374,6 @@
         </div>
     </section>
 
-    <!-- Обо мне -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-title">
@@ -413,7 +403,6 @@
         </div>
     </section>
 
-    <!-- Контакты -->
     <section id="contact" class="contact">
         <div class="container">
             <h2>Свяжитесь со мной</h2>
@@ -428,7 +417,6 @@
         </div>
     </section>
 
-    <!-- Подвал -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Мое портфолио. Все права раскрыты жду докса.</p>
@@ -436,7 +424,6 @@
     </footer>
 
     <script>
-        // Плавная прокрутка
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -447,7 +434,6 @@
             });
         });
         
-        // Фиксированная шапка при прокрутке
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
