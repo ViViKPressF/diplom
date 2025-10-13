@@ -19,6 +19,19 @@
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
         }
         
+        /* RGB режим */
+        .rgb-mode {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --accent: #45b7d1;
+            --light: #f0f0f0;
+            --dark: #2d3436;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --card-bg: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -31,6 +44,7 @@
             color: var(--text);
             background: var(--light);
             overflow-x: hidden;
+            transition: all 0.5s ease;
         }
         
         a {
@@ -94,6 +108,28 @@
             margin-bottom: 15px;
             color: var(--text-light);
             line-height: 1.8;
+        }
+        
+        /* RGB кнопка */
+        .rgb-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .rgb-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
         
         /* Header */
@@ -528,6 +564,16 @@
             animation: fadeInUp 0.8s ease forwards;
         }
         
+        /* RGB анимация */
+        @keyframes rgbGlow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        
+        .rgb-animate {
+            animation: rgbGlow 3s linear infinite;
+        }
+        
         /* Responsive Design */
         @media (max-width: 992px) {
             .about-content {
@@ -574,6 +620,13 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .rgb-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -593,6 +646,11 @@
     </style>
 </head>
 <body>
+
+    <!-- Кнопка переключения RGB режима -->
+    <button class="rgb-toggle" id="rgbToggle">
+        <i class="fas fa-palette"></i> RGB Mode
+    </button>
 
     <header>
         <div class="container header-container">
@@ -666,7 +724,7 @@
                         <p>Шрифты в интернете.</p>
                         <a href="https://www.figma.com/design/wVGdDaNDUs2FQ3yHfUDJhF/Untitled?t=Jo6y0sBaMrSG8l2t-1" target="_blank" class="btn">Посмотреть</a>
                     </div>
-            </div>
+                </div>
             </div>
         </div>
     </section>
@@ -736,6 +794,26 @@
     </footer>
 
     <script>
+        // RGB режим
+        const rgbToggle = document.getElementById('rgbToggle');
+        let rgbMode = false;
+        
+        rgbToggle.addEventListener('click', function() {
+            rgbMode = !rgbMode;
+            
+            if (rgbMode) {
+                document.body.classList.add('rgb-mode');
+                document.body.classList.add('rgb-animate');
+                rgbToggle.innerHTML = '<i class="fas fa-palette"></i> Normal Mode';
+                rgbToggle.style.background = 'linear-gradient(135deg, #ff6b6b, #4ecdc4)';
+            } else {
+                document.body.classList.remove('rgb-mode');
+                document.body.classList.remove('rgb-animate');
+                rgbToggle.innerHTML = '<i class="fas fa-palette"></i> RGB Mode';
+                rgbToggle.style.background = 'var(--gradient)';
+            }
+        });
+        
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -779,5 +857,3 @@
     </script>
 </body>
 </html>
-
-
