@@ -1,1 +1,5 @@
+css 
 
+body {
+    cursor: url('cursor.png'), auto;
+}
